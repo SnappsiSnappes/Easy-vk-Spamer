@@ -1,3 +1,5 @@
+![snappes](https://user-images.githubusercontent.com/111605401/212009802-aaa40f36-9766-462b-8292-aa7d92296bd8.png)
+
 # Easy-vk-Spamer
 Vk спамер, бесплатный, с открытым исходным кодом.
 Встроенные парсеры - своих друзей и вк групп.
