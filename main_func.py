@@ -184,6 +184,15 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                 else:
                     logout()
                     continue
+            #выход из цикла
+            if limit_add >= 40:
+                login_counter = login_counter + 1
+                
+                if len_users < login_counter:
+                    break
+                else:
+                    logout()
+                    continue
             
             try:
                 if driver.find_element(By.XPATH, '//div[@class="ProfileHeaderButton"]/button/span/span[contains(.,"Добавить в друзья")]'):
