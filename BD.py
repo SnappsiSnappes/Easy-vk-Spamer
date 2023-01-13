@@ -33,19 +33,28 @@ def BD(echo=bool,link=None,demo=bool):
 
 
 
-
-    def sendPic_bd():
+    global pic
+    pic = ''
+    with open('pic_bd.txt','r',encoding='utf-8') as file:
+        pic = []
+        for i in file:
+            if i == "\n":
+                continue
+            else:
+                pic.append(i)
+    def sendPic():
         with open('pic_bd.txt','r',encoding='utf-8') as file:
             pic = [pic for pic in file]
         try:
             pyperclip.copy(random.choice(pic))
+        
             time.sleep(2)
             act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
             time.sleep(2)
             act.key_down(Keys.CONTROL).send_keys("z").key_up(Keys.CONTROL).perform()
-        except:pass
-
-
+        except:
+            pass
+    print(pic)
     
     def msg_generator_bd():
         with open('msg_bd.txt','r',encoding='utf-8') as file:
@@ -161,7 +170,7 @@ def BD(echo=bool,link=None,demo=bool):
             time.sleep(2)
             driver.find_element(By.XPATH, '//div[(@class="im_editable im-chat-input--text _im_text")]').clear()
             driver.find_element(By.XPATH, '//div[(@class="im_editable im-chat-input--text _im_text")]').click()
-            sendPic_bd()
+            sendPic()
             driver.find_element(By.XPATH, '//div[(@class="im_editable im-chat-input--text _im_text")]').click()
             msg_generator_bd()
             time.sleep(2)

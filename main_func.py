@@ -118,7 +118,12 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
     global pic
     pic = ''
     with open('pic.txt','r',encoding='utf-8') as file:
-        pic = [pic for pic in file]
+        pic = []
+        for i in file:
+            if i == "\n":
+                continue
+            else:
+                pic.append(i)
     def sendPic():
         with open('pic.txt','r',encoding='utf-8') as file:
             pic = [pic for pic in file]
@@ -131,6 +136,7 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
             act.key_down(Keys.CONTROL).send_keys("z").key_up(Keys.CONTROL).perform()
         except:
             pass
+    print(pic)
     
 
 
@@ -176,7 +182,7 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
 
             print(limit, ' из 20')
             #выход из цикла
-            if limit >= 20:
+            if limit >= 1:
                 login_counter = login_counter + 1
                 
                 if len_users < login_counter:
@@ -195,7 +201,7 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                     continue
             
             try:
-                if driver.find_element(By.XPATH, '//div[@class="ProfileHeaderButton"]/button/span/span[contains(.,"Добавить в друзья")]'):
+                if driver.find_element(By.XPATH, '//div[@class="ProfileHeaderButton"]/button/span/span[contains(.,"Добавить в друзья")]') or driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]'):
                     time.sleep(1)
                     print('Пользователь еще не друг')
                     time.sleep(1)
@@ -205,18 +211,18 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                             if demo == True:
                                 pass
                             else:
-                                if limit_add >= 40:
-                                    limit_add = limit_add + 1
-                                    driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]/span').click()
-
+                                limit_add = limit_add + 1
+                                driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]/span').click()
+                        else:
+                            with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + 'Не добавлен в друзья, сообщение не было отправлено')
                         print('Я нашел кнопку добавить в друзья')
                         time.sleep(2)
-
-                    if driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]/span/div'):
+                    
+                    if driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]'):
                         print('я нашел кнопку написать сообщение')
                         if non_friend_msg == True:
                             print('non_friend_msg ПРОШЕЛ')
-                            driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]/span/div').click()
+                            driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]').click()
                             time.sleep(2)
                             try:#проверка на картинку
                                 driver.find_element(By.XPATH, '//div[@class="ui_thumb_x_button _close_btn" or role="link"]').click()
@@ -265,14 +271,102 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                             continue
                         else:
                             print('Закрыта личка')
-                            if demo == True : pass
+                            if demo == True: 
+                                pass
                             else: 
                                 with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' добавлен в друзья, ' + ' СООБЩЕНИЕ НЕ БЫЛО ОТПРАВЛЕНО')
-                            continue
-
+                                continue
+                
             except:
                 pass   
+
+            
+            try:
+                if driver.find_element(By.XPATH, '//div[@class="ProfileHeaderButton"]/button/span/span[contains(.,"заявку")]'):
+                    time.sleep(1)
+                    print('Пользователь еще не друг')
+                    time.sleep(1)
+                    if driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]/span') or driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]'):
+                        if non_friend_add ==True:
+                            print('non_friend_add ПРОШЕЛ')
+                            if demo == True:
+                                pass
+                            else:
+                                try: 
+                                    driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]').click()
+                                except:
+                                    pass
+                                limit_add = limit_add + 1
+                                driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]/span').click()
+                        else:
+                            with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' не добавлен в друзья, сообщение не было отправлено')
+                        print('Я нашел кнопку добавить в друзья')
+                        time.sleep(2)
                     
+                    if driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]'):
+                        print('я нашел кнопку написать сообщение')
+                        if non_friend_msg == True:
+                            print('non_friend_msg ПРОШЕЛ')
+                            driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]').click()
+                            time.sleep(2)
+                            try:#проверка на картинку
+                                driver.find_element(By.XPATH, '//div[@class="ui_thumb_x_button _close_btn" or role="link"]').click()
+                            except: pass
+                            time.sleep(2)
+                            name = ""
+                            time.sleep(2)
+                            try:#заносим имя в переменную
+                                
+                                name = driver.find_element(By.XPATH, '//div[@class="fl_l mail_box_sinlgle_recepient_info"]/a["mail_box_label_peer"]').text
+                            except:
+                                print('Сообщение отправить не удалось, не нашел имя')
+                                if demo == True:
+                                    pass
+                                else:
+                                    with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' добавлен в друзья, но' + ' СООБЩЕНИЕ НЕ БЫЛО ОТПРАВЛЕНО')
+                            
+                                continue
+                            time.sleep(2)
+                            #делаем диалог
+                            driver.find_element(By.XPATH,'//*[@id="box_layer"]/div[2]/div/div[1]/div[2]/a').click()
+                            time.sleep(2)
+                            try:
+                                driver.find_element(By.XPATH, '//div[(@class="im_editable im-chat-input--text _im_text")]').clear()
+                            except:pass
+                            driver.find_element(By.XPATH, '//div[(@class="im_editable im-chat-input--text _im_text")]').click()
+                            sendPic()
+                            driver.find_element(By.XPATH, '//div[(@class="im_editable im-chat-input--text _im_text")]').click()
+                            msg_generator()
+                            time.sleep(2)
+                            pyperclip.copy(random.choice(msg))
+                            act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
+                            time.sleep(1)
+                            if demo == True:
+                                pass
+                            else:
+                                act.key_down(Keys.ENTER).key_up(Keys.ENTER).perform()                
+                            time.sleep(1)
+                            
+                            limit = limit + 1
+                            if demo == True:
+                                pass
+                            else:
+                                with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' добавлен в друзья, сообщение отправлено')
+
+                            continue
+                        else:
+                            print('Закрыта личка')
+                            if demo == True: 
+                                pass
+                            else: 
+                                with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' добавлен в друзья, ' + ' СООБЩЕНИЕ НЕ БЫЛО ОТПРАВЛЕНО')
+                                continue
+                
+            except:
+                pass   
+
+
+                
             try:
                 if driver.find_element(By.XPATH, '//div[@class="ProfileHeaderButton"]/button/span/span[contains(.,"Вы подписаны")]'):
                     time.sleep(1)
@@ -282,10 +376,10 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                     
                 if we_sub == True:    
                     print('we_sub ПРОШЕЛ')
-                    if driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]/span/div'):
+                    if driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]'):
                         print('я нашел кнопку написать сообщение')
                         time.sleep(2)
-                        driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]/span/div').click()
+                        driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]').click()
                         time.sleep(5)
                         name = ""
                         time.sleep(2)
@@ -322,7 +416,12 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                             pass
                         else:
                             with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' мы подписаны, сообщение отправлено')
-
+                else:
+                    if demo == True:pass
+                    else:
+                        with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' мы подписаны, сообщение не отправлено')
+                        continue
+                        
             except:
                 pass           
             try:
@@ -368,6 +467,13 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                             pass
                         else:
                             with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' наш друг, сообщение отправлено')
+                    else:
+                        if demo == True:
+                            pass
+                        else:
+                            
+                            with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' мы подписаны, сообщение не отправлено')
+                            continue
             except:
                 pass
             try:
@@ -377,7 +483,7 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                 if our_sub == True:
                     print('our_sub ПРОШЕЛ')
                     time.sleep(2)
-                    driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div[1]/div[2]/a/span[1]').click()
+                    driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[2]/a/span[1]').click()
                     time.sleep(2)
                     name = ""
                     time.sleep(2)
@@ -413,11 +519,15 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                         pass                
                     else:
                         with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' наш подписчик, сообщение отправлено')
-                    
+                else:
+                    if demo == True:pass
+                    else:
+                        with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' наш подписчик, не сообщение отправлено')
+                        continue
             except:
                 pass            
             
-            
+            with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' программа не поняла кто это, сообщение не отправлено')
             continue
             
 
@@ -428,4 +538,4 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
         driver.quit()
 
 if __name__ == '__main__':
-    main_func(echo=False,link=None)
+    main_func(echo=False,link=None,demo=False)
