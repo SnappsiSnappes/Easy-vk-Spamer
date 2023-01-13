@@ -182,7 +182,7 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
 
             print(limit, ' из 20')
             #выход из цикла
-            if limit >= 1:
+            if limit >= 20:
                 login_counter = login_counter + 1
                 
                 if len_users < login_counter:
