@@ -16,8 +16,10 @@ __Требования______________
 Хром должен быть такой же версии как и в папке с программой
 Проверте версию хрома и скачайте версию chromdriver.exe в папку с программой соответствующей версией
 отсюда https://chromedriver.chromium.org/downloads
+_                                               
 2) только WINDOWS
-3) selenium , pyqt5 , link, pyperclip , subprocess
+_                                           
+3) selenium , pyqt5 , click, pyperclip , subprocess
 
 __Инструкция______________
 Запуск на ui_launch.pyw
