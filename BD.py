@@ -34,17 +34,22 @@ def BD(echo=bool,link=None,demo=bool):
 
 
     global pic
-    pic = ''
-    with open('pic_bd.txt','r',encoding='utf-8') as file:
-        pic = []
-        for i in file:
-            if i == "\n":
-                continue
-            else:
-                pic.append(i)
+    pic = []
+    #with open('pic_bd.txt','r',encoding='utf-8') as file:
+    #    pic = []
+    #    for i in file:
+    #        if i == "\n":
+    #            continue
+    #        else:
+    #            pic.append(i)
     def sendPic():
         with open('pic_bd.txt','r',encoding='utf-8') as file:
-            pic = [pic for pic in file]
+            for i in file:
+                if i =="\n":
+                    continue
+                else:
+                    pic.append(i)
+            #pic = [pic for pic in file]
         try:
             pyperclip.copy(random.choice(pic))
         
