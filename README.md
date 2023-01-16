@@ -101,5 +101,7 @@ __________
 ![image](https://user-images.githubusercontent.com/111605401/212139598-80e44bbf-7cd5-42e8-b68f-bcc6a06a3ff1.png)
 
 __________
+https://disk.yandex.ru/d/pxl3bR3niyMzLg - win x64 exe'шник
+__________
 вопросы/пожелания - 42leonid@gmail.com
 телега - https://t.me/SnappesiSnappes
