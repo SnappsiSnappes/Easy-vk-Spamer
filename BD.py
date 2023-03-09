@@ -1,5 +1,9 @@
 
-def BD(echo=bool,link=None,demo=bool):
+def BD(echo=bool,link=None,demo=bool,worker=None):
+    
+    #worker.update_progress(53)
+    #worker.update_progress(55)
+    # рабочий код сверху обновляет прогресс бар
     import random
     import pyperclip
     from selenium import webdriver
@@ -12,7 +16,7 @@ def BD(echo=bool,link=None,demo=bool):
     from subprocess import CREATE_NO_WINDOW
 
     global name
-
+    
     google_path = (f'{os.path.expanduser("~")}/AppData/Local/Google/Chrome/User Data')
 
     options = webdriver.ChromeOptions()
@@ -30,8 +34,8 @@ def BD(echo=bool,link=None,demo=bool):
     
     driver = webdriver.Chrome(service=s, options=options)
     act = ActionChains(driver)
-
-
+    
+    
 
     global pic
     pic = []
@@ -60,7 +64,7 @@ def BD(echo=bool,link=None,demo=bool):
         except:
             pass
     print(pic)
-    
+    sendPic()
     def msg_generator_bd():
         with open('msg_bd.txt','r',encoding='utf-8') as file:
 
@@ -147,8 +151,10 @@ def BD(echo=bool,link=None,demo=bool):
             print(elem.get_attribute("href"))
             links.append(elem.get_attribute("href"))
         
-        print(links)
-        for d in links:
+        #print(links)
+        num_links = len(links)
+
+        for index, d in enumerate(links):
             driver.get(d)
             time.sleep(4)
             checkurl(d)
@@ -182,11 +188,16 @@ def BD(echo=bool,link=None,demo=bool):
             pyperclip.copy(random.choice(msg))
             act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
             time.sleep(1)
+            
+            percent_complete = (index + 1) / num_links * 100
+            worker.update_progress(percent_complete)
+            
             if demo == True:
                 pass
             else:
                 act.key_down(Keys.ENTER).key_up(Keys.ENTER).perform()
             time.sleep(1)
+            
             
             
             continue
