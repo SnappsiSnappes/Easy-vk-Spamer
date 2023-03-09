@@ -9,16 +9,18 @@ import os
 from Parcing_group import parcing_group
 import time
 
+import subprocess
+
 import click
 
 from Thread_with_cb import *
 from BD import BD
 from main_func import main_func
 
-
-#ui0(QtWidgets.QMainWindow):
-
-
+import chromedriver_autoinstaller
+chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+                                      # and if it doesn't exist, download it automatically,
+                                      # then add chromedriver to path
 
     
     
