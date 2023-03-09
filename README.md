@@ -1,107 +1,78 @@
-![snappes](https://user-images.githubusercontent.com/111605401/212009802-aaa40f36-9766-462b-8292-aa7d92296bd8.png)
+Easy-vk-Spamer
+A free and open-source Vkontakte spammer.
+Built-in parsers for your friends and Vkontakte groups.
+Targets are added to the target.txt file, and the main spammer works off that file.
+image
+The program launches your local Google Chrome. Only message sending is supported.
+If you need additional functionality, please contact me on Telegram.
 
-# Easy-vk-Spamer
-Vk спамер, бесплатный, с открытым исходным кодом.
-Встроенные парсеры - своих друзей и вк групп.
-Заносятся в файл target.txt
-По этому же файлу работает основной спамер.
-![image](https://user-images.githubusercontent.com/111605401/212009704-6738c7a4-8c17-412b-8d54-a1603e7992f6.png)
-Программа запускает ваш локальный гугл хром. Поддерживается только отправка сообщений,
-если нужен дополнительный функционал - пишите в телеграм.
+Instructions____________
+ctrl right-click - open cmd in directory
+pip install -r requirements.txt
+Launch ui__Launch.pyw
+Requirements____________
 
+Google Chrome installed on the Windows drive
+Windows only
+Instructions____________
+Launch ui_launch.pyw
 
+Write a message, you can use emojis,
+address the person using the combination - image
+IMPORTANT - there is a line break character, but your message will be displayed
+inside the program on one line. During operation, the line break character will work
+wherever you leave it.
+There is an example at the bottom.
+Messages will be sent randomly - one message to one person.
 
-__Требования______________
-1)установленный гугл хром на диске с виндой
-Хром должен быть такой же версии как и в папке с программой
-Проверте версию хрома и скачайте версию chromdriver.exe в папку с программой соответствующей версией
-отсюда https://chromedriver.chromium.org/downloads
-_                                               
-2) только WINDOWS
-_                                           
-3) selenium , pyqt5 , click, pyperclip , subprocess
+Add your account
+Important - log in to it through Google Chrome, otherwise
+an error with the phone number may occur.
 
-__Инструкция______________
-Запуск на ui_launch.pyw
+Get group subscribers or friend links, both will be written
+to the target.txt file and the program will work off of them.
+IMPORTANT! - wait... parsing 2200 friends will take 5 minutes
 
+Press start, the daily limit is 20 messages per account.
+Adding friends - 50 people per day.
 
-1)Напишите сообщение, можно использовать эмоджи,
-обращайтесь к имени человека используя сочетание -  ![image](https://user-images.githubusercontent.com/111605401/212139546-1c7928fd-958e-4570-92da-037b045f8c59.png)
+For better performance, check the quiet mode checkbox.
 
-ВАЖНО - знак переноса строки есть, но ваше сообщение отобразиться внутри
-программы в одну строчку. Во время работы знак переноса строки будет работать
-там где вы его оставите.
-внизу есть пример.
-сообщения будут отправлены случайным образом - одно сообщение - одному человеку.
+Notes____________
+chromedriver.exe can be downloaded from the Internet
+and manually placed in the program folder, thus the program can be updated.
+If it adds 40 friends, the loop will be interrupted and the account will be switched
+If it writes to 20 people, the loop will be interrupted and the account will be switched
 
-2)Добавьте свой аккаунт
-Важно - зайдите на него через гугл хром, иначе может произойти
-ошибка с телефоном.
+Demo mode_____________
+it won't send messages or add friends
+it won't fill in old_perc
+mode - for preview,
+getting to know the program.
 
-3)Получите подписчиков группы или ссылки друзей, оба будут записаны 
-в файл target.txt и по ним будет идти работа.
-ВАЖНО! - ждите ... 2200 друзей будет парсить 5 минут
+Quiet mode_________
+Does not show the browser, but it is launched and
+it works more stably than without quiet mode.
+At the end, I recommend turning off Chrome through Task Manager.
 
-4) Жмите старт, в день лимит 20 сообщений с одного аккаунта.
-Добавление в друзья - 50 человек в сутки.
+Accounts___________
+will automatically switch
+and continue sending messages, to leave
+one account in use, delete
+all accounts except the main one in the window
+Password + Login
 
-5) Для лучшей работоспособности ставьте галочку - тихий режим
+target.txt____________
+Links from the "Get group subscribers" button
+and "Get friend links" button will be added here.
+You can also add links manually, separated by a line break.
 
-__Примичания______________
-chromedriver.exe можно скачать из интернета 
-и поставить в папку с программой самостоятельно, 
-таким образом можно обновить прогрмму.
-Если добавит 40 друзей - оборвет цикл, переключит аккаунт
-Если напишет 20 человек - оборвет цикл, переключит аккаунт
+old pers.txt____________
+This file will contain users who
+have already been processed, the program will never
+contact them again. You can delete links to reuse them.
+It also writes a report for each one.
 
-__ДЕМО режим_______________
-значит не будет отправлять сообщения и добавляться в друзья
-не будет заполнять old_perc 
-режим - для предварительного просмотра,
-ознокомления с программой.
-
-__Тихий режим___________
-Не показывает браузер, но он запускается и 
-работает стабильнее. Чем без тихого режима.
-В конце рекомендую выключить хром через диспетчер
-задач.
-
-__Аккаунты_____________
-будут автоматический переключаться
-и продолжать рассылку, чтобы 
-оставить 1 аккаунт в работе, удалите
-все аккаунты кроме основного в окне
-Пароль + Логин
-
-__target.txt______________
-Сюда будут занесены ссылки из кнопки - получить подписчиков группы
-и получить ссылки на друзей.
-Можно заносить ссылки самостоятельно, через перенос строки.
-
-__old pers.txt______________
-сюда будут заноситься пользователи которые
-уже отработаны, к ним программа никогда не будет
-больше обращаться. Можно удалить ссылки, для повторного
-обращения. Так же пишет отчет под каждым.
-
-__картинка_____________
-пишите ссылку на картинку в интернете, на конечную фото
-![image](https://user-images.githubusercontent.com/111605401/212394591-47639e1a-3412-4e87-9795-14720cc271ba.png)
-
-
-__сообщения_____________
-В файл msg.txt лучше ничего не трогать, заполняйте сообщение внутри программы
-!Важно: программа будет отправлять сообщения случайным образом.
-1)Используйте специальный символ ![image](https://user-images.githubusercontent.com/111605401/212140296-fa23e78d-fa8d-464a-9d57-ef290a804ac7.png)
- в том месте где хотите указать имя - без фамилии. 
-2)Можно использовать эмоджи
-__________
-
-
-![image](https://user-images.githubusercontent.com/111605401/212139598-80e44bbf-7cd5-42e8-b68f-bcc6a06a3ff1.png)
-
-__________
-https://disk.yandex.ru/d/pxl3bR3niyMzLg - win x64 exe'шник
-__________
-вопросы/пожелания - 42leonid@gmail.com
-телега - https://t.me/SnappesiSnappes
+image___________
+Write a link to the image on the internet, to the final photo
+![image](https://user-images.githubusercontent.com/111605401/212394591-47639e1a-3412-4e87-9795...
