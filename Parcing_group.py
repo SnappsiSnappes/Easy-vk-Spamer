@@ -3,7 +3,7 @@ xpath """
 
 
 
-def parcing_group(echo=bool,link='',demo=bool,worker=None):):
+def parcing_group(echo=bool,link='',demo=bool,worker=None):
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service
     from selenium.webdriver.common.keys import Keys
