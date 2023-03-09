@@ -9,16 +9,18 @@ import os
 from Parcing_group import parcing_group
 import time
 
+import subprocess
+
 import click
 
 from Thread_with_cb import *
 from BD import BD
 from main_func import main_func
 
-
-#ui0(QtWidgets.QMainWindow):
-
-
+import chromedriver_autoinstaller
+chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+                                      # and if it doesn't exist, download it automatically,
+                                      # then add chromedriver to path
 
     
     
@@ -60,7 +62,7 @@ class ui0(Ui_MainWindow,QtWidgets.QMainWindow):
 
         self.init_UI()
         self.ui.progressBar.setMinimum(0)
-        self.ui.progressBar.setMaximum(500)
+        self.ui.progressBar.setMaximum(100)
         self.ui.progressBar.setValue(0)
 
         check_alive('msg.txt');check_alive('users.txt');check_alive('old_pers.txt');check_alive('target.txt')
@@ -301,10 +303,11 @@ class ui0(Ui_MainWindow,QtWidgets.QMainWindow):
         self.ui.listWidget_3.addItem(item)
         item.setText("Процесс парсинга друзей запущен, ждите. Важно не нажимайте кнопки пока не закончится процесс")
 
-    def reportProgress(self):
-        item_end = QtWidgets.QListWidgetItem()
-        self.ui.listWidget_3.addItem(item_end)
-        item_end.setText("Процесс завершен✅")
+    def reportProgress(self,n):
+        self.ui.progressBar.setValue(n)
+        #item_end = QtWidgets.QListWidgetItem()
+        #self.ui.listWidget_3.addItem(item_end)
+        #item_end.setText("Процесс завершен✅")
 
     def history(self):
         os.startfile('old_pers.txt')
@@ -458,6 +461,10 @@ class Worker(QObject):
     finished = pyqtSignal()
     progress = pyqtSignal(int)
     link = str
+    
+    @QtCore.pyqtSlot(int)
+    def update_progress(self, n):
+        self.progress.emit(n)
 
     def func(func,echo=bool,link=str):
         link=str
@@ -473,11 +480,9 @@ class Worker(QObject):
             self.func(echo=ui0.echo,we_sub=ui0.we_sub,our_sub=ui0.our_sub,friend_msg=ui0.friend_msg,
             non_friend_msg=ui0.non_friend_msg,non_friend_add=ui0.non_friend_add,demo=ui0.demo)
         else:
-            self.func(echo=echo,link=link,demo=ui0.demo)
+            self.func(echo=echo,link=link,demo=ui0.demo,worker=self)
     
-        for i in range(1):
-            time.sleep(1)
-            self.progress.emit(i + 1)
+
         self.finished.emit()
 
 #https://vk.com/sunstudiosolo
