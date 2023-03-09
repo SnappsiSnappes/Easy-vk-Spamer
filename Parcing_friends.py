@@ -2,7 +2,7 @@
 xpath """
 
 
-def parcing_friends(echo=bool,link=str,demo=bool,worker=None):):
+def parcing_friends(echo=bool,link=str,demo=bool,worker=None):
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service
     from selenium.webdriver.common.keys import Keys
