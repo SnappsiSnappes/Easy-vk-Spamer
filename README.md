@@ -1,3 +1,14 @@
+Disclaimer:
+
+This software (the "Software") is provided for informational purposes only. As the developer, I am not responsible for any use of this Software, including any consequences arising from its use. Use of this Software is at your own risk.
+
+Users who choose to use this Software should be cautious and careful, and understand that all actions they take using this Software are their own responsibility.
+
+I do not endorse or support the use of this Software for any illegal purposes or for any purposes that infringe on the rights of others.
+
+Finally, I want to emphasize that I do not provide any guarantees regarding the operation and functionality of this Software.
+
+
 Easy-vk-Spamer
 A free and open-source Vkontakte spammer.
 Built-in parsers for your friends and Vkontakte groups.
