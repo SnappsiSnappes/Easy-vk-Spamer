@@ -26,8 +26,7 @@ Instructions____________
 Requirements____________
   Google Chrome installed on the Windows drive
   Windows only
-Instructions____________
-  Launch ui_launch.pyw
+
 
 
   Write a message, you can use emojis,
