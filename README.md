@@ -18,7 +18,7 @@ The program launches your local Google Chrome. Only message sending is supported
 If you need additional functionality, please contact me on Telegram.
 
 Instructions____________
-  ctrl right-click - open cmd in directory
+  shift + right-click - open cmd in directory
   pip install -r requirements.txt
   Launch ui__Launch.pyw
 
