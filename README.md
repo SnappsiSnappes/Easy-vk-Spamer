@@ -40,7 +40,6 @@ If you need additional functionality, please contact me on Telegram.
   IMPORTANT - there is a line break character, but your message will be displayed
   inside the program on one line. During operation, the line break character will work
   wherever you leave it.
-  There is an example at the bottom.
   Messages will be sent randomly - one message to one person.
 
   - Add your account
