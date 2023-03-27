@@ -1,6 +1,6 @@
 # Disclaimer:
 
-This software (the "Software") is provided for informational purposes only. As the developer, I am not responsible for any use of this Software, including any consequences arising from its use. Use of this Software is at your own risk.
+This software is provided for informational purposes only. As the developer, I am not responsible for any use of this Software, including any consequences arising from its use. Use of this Software is at your own risk.
 
 Users who choose to use this Software should be cautious and careful, and understand that all actions they take using this Software are their own responsibility.
 
@@ -30,8 +30,8 @@ If you need additional functionality, please contact me on Telegram.
 
 
 ### Requirements
-  Google Chrome installed on the Windows drive
-  Windows only
+  - Google Chrome installed on the Windows drive
+  - Windows only
 
 
 ### basic description 
