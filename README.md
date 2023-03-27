@@ -87,4 +87,4 @@ If you need additional functionality, please contact me on Telegram.
 
 ### image
   Write a link to the image on the internet, to the final photo
-  ![image](https://user-images.githubusercontent.com/111605401/212394591-47639e1a-3412-4e87-9795...
+  - https:// some image. com / cat.jpg
