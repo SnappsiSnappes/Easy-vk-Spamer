@@ -1,6 +1,6 @@
 
 def main_func(echo=bool,link=None,we_sub=bool,our_sub=bool,
-friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
+friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool,worker=None):
     import pyperclip
     from selenium import webdriver
     from selenium.webdriver.chrome.service import Service
@@ -100,7 +100,7 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                     time.sleep(1.3)
                     driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div[2]/div/div/div/form/div[1]/div[3]/div[1]/div/input').send_keys(users[f'{login_counter}']['password'])
                     time.sleep(1)
-                    driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div[2]/div/div/div/form/div[2]/button[1]/span[1]/span["продолжить"]').click()
+                    driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div/div/div/form/div[2]/button[1]/span[1]/span/span').click()
                     print('прошел авторизацию')
                     time.sleep(3) 
                     driver.get('https:vk.com/feed')
@@ -200,6 +200,13 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                     logout()
                     continue
             
+            if non_friend_add == True:
+                percent_complete = (limit_add + 1) / 40 * 100
+                worker.update_progress(percent_complete)
+            else:
+                percent_complete = (limit + 1) / 20 * 100
+                worker.update_progress(percent_complete)
+            
             try:
                 if driver.find_element(By.XPATH, '//div[@class="ProfileHeaderButton"]/button/span/span[contains(.,"Добавить в друзья")]') or driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]'):
                     time.sleep(1)
@@ -209,12 +216,14 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                         if non_friend_add ==True:
                             print('non_friend_add ПРОШЕЛ')
                             if demo == True:
+                                limit_add = limit_add + 1
                                 pass
                             else:
                                 limit_add = limit_add + 1
                                 driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]/span').click()
                         else:
-                            with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + 'Не добавлен в друзья, сообщение не было отправлено')
+                            if demo == False: 
+                                with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + 'Не добавлен в друзья, сообщение не было отправлено')
                         print('Я нашел кнопку добавить в друзья')
                         time.sleep(2)
                     
@@ -290,6 +299,7 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                         if non_friend_add ==True:
                             print('non_friend_add ПРОШЕЛ')
                             if demo == True:
+                                limit_add = limit_add + 1
                                 pass
                             else:
                                 try: 
@@ -299,7 +309,8 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool):
                                 limit_add = limit_add + 1
                                 driver.find_element(By.XPATH, '//*[@id="profile_redesigned"]/div/div/div/div[2]/div[2]/div[2]/div/div[2]/div/div/div/div[1]/button/span[1]/span').click()
                         else:
-                            with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' не добавлен в друзья, сообщение не было отправлено')
+                            if demo == False:
+                                with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' не добавлен в друзья, сообщение не было отправлено')
                         print('Я нашел кнопку добавить в друзья')
                         time.sleep(2)
                     
