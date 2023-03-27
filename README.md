@@ -15,7 +15,7 @@ Built-in parsers for your friends and Vkontakte groups.
 - Targets are added to the target.txt file, and the main spammer works off that file.
 image
 - The program launches your local Google Chrome.
-- message sending, adding new friends, send message only ones that have a birth day, parce your friends, parce any group.
+- message sending, adding new friends (and additional -  send them a message), send message only ones that have a birth day, parce your friends, parce any group.
 
 ### Instructions
 1. first way
