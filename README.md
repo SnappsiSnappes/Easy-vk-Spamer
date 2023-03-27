@@ -10,12 +10,12 @@ Finally, I want to emphasize that I do not provide any guarantees regarding the 
 
 
 # Easy-vk-Spamer
-A free and open-source Vkontakte spammer.
+- A free and open-source Vkontakte spammer.
 Built-in parsers for your friends and Vkontakte groups.
-Targets are added to the target.txt file, and the main spammer works off that file.
+- Targets are added to the target.txt file, and the main spammer works off that file.
 image
-The program launches your local Google Chrome. Only message sending is supported.
-If you need additional functionality, please contact me on Telegram.
+- The program launches your local Google Chrome.
+- message sending, adding new friends, send message only ones that have a birth day, parce your friends, parce any group.
 
 ### Instructions
 1. first way
