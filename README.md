@@ -86,3 +86,6 @@ Built-in parsers for your friends and Vkontakte groups.
 ### image
   Write a link to the image on the internet, to the final photo
   - https:// some image. com / cat.jpg
+
+![image](https://user-images.githubusercontent.com/111605401/228058139-a8b532ee-a880-4397-8540-cddf4288b678.png)
+
