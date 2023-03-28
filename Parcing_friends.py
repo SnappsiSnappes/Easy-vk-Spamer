@@ -122,7 +122,11 @@ def parcing_friends(echo=bool,link=str,demo=bool,worker=None):
             act.key_down(Keys.PAGE_DOWN).key_up(Keys.PAGE_DOWN).perform()
             elems =len(driver.find_elements(By.XPATH, '//*[@class="friends_user_row friends_user_row--fullRow "]/div/div[1]/a[@href]'))
             i = int(elems)
-            print(i,'i')
+            #print(i,'i')
+
+            percentage = int((i / c) * 100)
+            worker.update_progress(percentage)
+
             if i >= c:
                 break
             

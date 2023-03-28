@@ -86,11 +86,11 @@ def parcing_group(echo=bool,link='',demo=bool,worker=None):
                     driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div[2]/div/div/div/form/div[1]/div[3]/div[1]/div/input').send_keys(users['1']['password'])
                     time.sleep(1)
                     driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div[2]/div/div/div/form/div[2]/button[1]/span[1]/span["продолжить"]').click()
-                    print('прошел авторизацию')
+                    #print('прошел авторизацию')
                     time.sleep(3) 
                     driver.get('https:vk.com/feed')
         except: pass
-        print('я скинул аутентивифкацию. линк = ',link)
+        #print('я скинул аутентивифкацию. линк = ',link)
         time.sleep(2)
         driver.get(f"{link}")
         time.sleep(4)
@@ -107,12 +107,13 @@ def parcing_group(echo=bool,link='',demo=bool,worker=None):
         #"//div[contains(.,'сегодня')]/div[(@class='bd_name')]/a[@href]"
         c = driver.find_element(By.XPATH,'/html/body/div[7]/div[1]/div[2]/div/div[2]/div/div[1]/div/div/h2/ul/li[1]/div').text
         c = c.replace('Подписчики','')
+        c = c.replace(' ','')
         с = float(c)
         s = float(5)
         c = float(c) - s
         
         
-        print(c)
+        #print(c)
         
         while True:
             d = 0
@@ -123,7 +124,9 @@ def parcing_group(echo=bool,link='',demo=bool,worker=None):
                 d = d+1
                     
             elemsCount = len(driver.find_elements(By.XPATH, '//div[@class="fans_rows"]/div[(@class="fans_fan_row inl_bl")]/div[(@class="fans_fan_name")]/a[@href]'))
-            print(elemsCount)
+            #print(elemsCount)
+            percentage = int((elemsCount / c) * 100)
+            worker.update_progress(percentage)
             if elemsCount >= int(c):
                 break
         
