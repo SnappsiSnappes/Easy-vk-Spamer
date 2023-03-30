@@ -24,8 +24,8 @@ Built-in parsers for your friends and Vkontakte groups.
   ```
   - Launch ui__Launch.pyw
   
-2. second way using virtual env
-  - start.bat
+2. second way https://github.com/SnappsiSnappes/Easy-vk-Spamer-by-Snappsi/releases/download/Easy-vk-Spamer-by-Snappsi/Easy-vk-Spamer_x64_exe.rar
+  - run .exe
 
 
 ### Requirements
