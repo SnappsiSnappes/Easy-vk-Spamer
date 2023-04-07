@@ -50,6 +50,8 @@ def parcing_friends(echo=bool,link=str,demo=bool,worker=None):
         print("у вас не установлен Gogle Chrome")
     options.add_argument(f'--user-data-dir={google_path}')
     options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument('--disable-background-timer-throttling') # exp
+    options.add_argument('--disable-extensions') # exp
     s = Service(executable_path='chromedriver.exe')
     s.creationflags = CREATE_NO_WINDOW
     
@@ -59,7 +61,7 @@ def parcing_friends(echo=bool,link=str,demo=bool,worker=None):
     options.add_argument("--start-maximized")
 
     driver = webdriver.Chrome(service=s, options=options)
-
+    driver.implicitly_wait(5) # exp
     act = ActionChains(driver)
 
     #def scrolldown():
