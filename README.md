@@ -17,15 +17,14 @@ Built-in parsers for your friends and Vkontakte groups.
 - message sending, adding new friends (and additional -  send them a message), send message only ones that have a birth day, parce your friends, parce any group.
 
 ### Instructions
-1. first way
+
   - shift + right-click - open cmd in directory
   ```
   pip install -r requirements.txt
   ```
   - Launch ui__Launch.pyw
   
-2. second way https://github.com/SnappsiSnappes/Easy-vk-Spamer-by-Snappsi/releases/download/Easy-vk-Spamer-by-Snappsi/Easy-vk-Spamer_x64_exe.rar
-  - run .exe
+
 
 
 ### Requirements
