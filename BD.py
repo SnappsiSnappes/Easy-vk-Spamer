@@ -17,6 +17,9 @@ def BD(echo=bool,link=None,demo=bool,worker=None):
 
     global name
     
+
+
+    
     google_path = (f'{os.path.expanduser("~")}/AppData/Local/Google/Chrome/User Data')
 
     options = webdriver.ChromeOptions()
@@ -27,14 +30,19 @@ def BD(echo=bool,link=None,demo=bool,worker=None):
         print("у вас не установлен Gogle Chrome")
     options.add_argument(f'--user-data-dir={google_path}')
     options.add_argument('--disable-blink-features=AutomationControlled')
+    
+    options.add_argument('--disable-background-timer-throttling') # exp
+    options.add_argument('--disable-extensions') # exp
     if echo == True:
         options.add_argument("--headless")
+        
     s = Service(executable_path='chromedriver.exe')
     s.creationflags = CREATE_NO_WINDOW
     
+
     driver = webdriver.Chrome(service=s, options=options)
     act = ActionChains(driver)
-    
+    driver.implicitly_wait(10) # exp
     
 
     global pic
