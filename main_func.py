@@ -540,7 +540,8 @@ friend_msg=bool,non_friend_msg=bool,non_friend_add=bool,demo=bool,worker=None):
             except:
                 pass            
             
-            with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' программа не поняла кто это, сообщение не отправлено')
+            if demo == False:
+                with open("old_pers.txt", "a+", encoding='utf-8') as g: g.write("\n" + d + "\n" + now + ' программа не поняла кто это, сообщение не отправлено')
             continue
             
 
