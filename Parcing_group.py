@@ -28,7 +28,8 @@ def parcing_group(echo=bool,link='',demo=bool,worker=None):
     options.add_argument(f'--user-data-dir={google_path}')
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_argument("--start-maximized")
-
+    options.add_argument('--disable-background-timer-throttling') # exp
+    options.add_argument('--disable-extensions') # exp
     if echo == True:
         options.add_argument("--headless")
 
@@ -37,7 +38,7 @@ def parcing_group(echo=bool,link='',demo=bool,worker=None):
     s.creationflags = CREATE_NO_WINDOW
 
     driver = webdriver.Chrome(service=s, options=options)
-
+    driver.implicitly_wait(5) # exp
 
     #список юзерс с логинами и паролями читаем из файла users.txt
     users = {
