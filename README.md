@@ -15,7 +15,8 @@ Built-in parsers for your friends and Vkontakte groups.
 - add your links to a target.txt or use built-in parcer to parce any group in VK or your own friend list. Main spammer works off that file.
 - The program launches your local Google Chrome.
 - message sending, adding new friends (and additional -  send them a message), send message only ones that have a birth day, parce your friends, parce any group.
-
+ 
+### contact me telegram https://t.me/SnappesiSnappes
 ### Instructions
 
   - shift + right-click - open cmd in directory
