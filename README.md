@@ -7,7 +7,7 @@ python.exe -m pip install --upgrade pip
 pip install -r requirements.txt
 python manage.py runserver
 ```
-- Python 3.10.6 x64  / python 3.8 (win7 32bit) - проверено 
+- Python 3.10.6 x64 (win10 64bit)  / python 3.8 (win7 32bit) - проверено 
 # Disclaimer:
 
 This software is provided for informational purposes only. As the developer, I am not responsible for any use of this Software, including any consequences arising from its use. Use of this Software is at your own risk.
