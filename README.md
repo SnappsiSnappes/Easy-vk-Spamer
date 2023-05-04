@@ -5,7 +5,7 @@ python -m venv venv
 .\venv\Scripts\activate
 python.exe -m pip install --upgrade pip
 pip install -r requirements.txt
-python manage.py runserver
+python ui__Launch.pyw
 ```
 - Python 3.10.6 x64 (win10 64bit)  / python 3.8 (win7 32bit) - проверено 
 # Disclaimer:
