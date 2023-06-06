@@ -1,4 +1,4 @@
-# Setup:
+# Установка / запуск:
 
 ```
 python -m venv venv
@@ -8,93 +8,94 @@ pip install -r requirements.txt
 python ui__Launch.pyw
 ```
 - Python 3.10.6 x64 (win10 64bit)  / python 3.8 (win7 32bit) - проверено 
-# Disclaimer:
+Вот перевод на русский язык:
 
-This software is provided for informational purposes only. As the developer, I am not responsible for any use of this Software, including any consequences arising from its use. Use of this Software is at your own risk.
+# Отказ от ответственности:
 
-Users who choose to use this Software should be cautious and careful, and understand that all actions they take using this Software are their own responsibility.
+Это программное обеспечение предоставляется только для информационных целей. Как разработчик, я не несу ответственности за любое использование этого программного обеспечения, включая любые последствия, возникающие в результате его использования. Использование этого программного обеспечения осуществляется на ваш собственный риск.
 
-I do not endorse or support the use of this Software for any illegal purposes or for any purposes that infringe on the rights of others.
+Пользователи, которые выбирают использовать это программное обеспечение, должны быть осторожны и внимательны и понимать, что все действия, которые они предпринимают с помощью этого программного обеспечения, являются их собственной ответственностью.
 
-Finally, I want to emphasize that I do not provide any guarantees regarding the operation and functionality of this Software.
+Я не поддерживаю и не одобряю использование этого программного обеспечения для любых незаконных целей или для любых целей, которые нарушают права других.
+
+Наконец, я хочу подчеркнуть, что я не предоставляю никаких гарантий относительно работы и функциональности этого программного обеспечения.
 
 
 # Easy-vk-Spamer
-- A free and open-source Vkontakte spammer.
-Built-in parsers for your friends and Vkontakte groups.
-- add your links to a target.txt or use built-in parcer to parce any group in VK or your own friend list. Main spammer works off that file.
-- The program launches your local Google Chrome.
-- message sending, adding new friends (and additional -  send them a message), send message only ones that have a birth day, parce your friends, parce any group.
- 
-### contact me telegram https://t.me/SnappesiSnappes
-### Instructions
+- Бесплатный и открытый спамер Вконтакте.
+Встроенные парсеры для ваших друзей и групп Вконтакте.
+- добавьте свои ссылки в target.txt или используйте встроенный парсер для парсинга любой группы в VK или вашего списка друзей. Основной спамер работает с этого файла.
+- Программа запускает ваш локальный Google Chrome.
+- отправка сообщений, добавление новых друзей (и дополнительно - отправка им сообщения), отправка сообщений только тем, у кого есть день рождения, парсинг ваших друзей, парсинг любой группы.
 
-  - shift + right-click - open cmd in directory
+### свяжитесь со мной в телеграмме https://t.me/SnappesiSnappes
+### Инструкции
+
+  - shift + правый клик - открыть cmd в каталоге
   ```
   pip install -r requirements.txt
   ```
-  - Launch ui__Launch.pyw
-  
+  - Запустите ui__Launch.pyw
 
 
 
-### Requirements
-  - Google Chrome installed on the Windows drive
-  - Windows only
+### Требования
+  - Google Chrome установлен на диске Windows
+  - Только Windows
 
 
-### basic description 
-  - Write a message, you can use emojis,
-  address the person using the combination - ``` _имя_ ```
-  IMPORTANT - there is a line break character, but your message will be displayed
-  inside the program on one line. During operation, the line break character will work
-  wherever you leave it.
-  Messages will be sent randomly - one message to one person.
+### основное описание 
+  - Напишите сообщение, вы можете использовать эмодзи,
+  обращайтесь к человеку с помощью комбинации - ``` _имя_ ```
+  ВАЖНО - есть символ переноса строки, но ваше сообщение будет отображаться
+  внутри программы на одной строке. Во время работы символ переноса строки будет работать
+  где бы вы его не оставили.
+  Сообщения будут отправляться случайным образом - одно сообщение одному человеку.
 
-  - Add your account
-  Important - log in to it through Google Chrome, otherwise
-  an error with the phone number may occur.
+  - Добавьте свой аккаунт
+  Важно - войдите в него через Google Chrome, иначе
+  может возникнуть ошибка с номером телефона.
 
-  - Get group subscribers or friend links, both will be written
-  to the target.txt file and the program will work off of them.
-  IMPORTANT! - wait... parsing 2200 friends will take 5 minutes
+  - Получить ссылки на подписчиков группы или друзей, обе будут записаны
+  в файл target.txt и программа будет работать с ними.
+  ВАЖНО! - ждите ... парсинг 2200 друзей займет 5 минут
 
-  - Press start, the daily limit is 20 messages per account.
-  Adding friends - 50 people per day.
+  - Нажмите старт, ежедневный лимит - 20 сообщений на аккаунт.
+  Добавление друзей - 50 человек в день.
 
 
 
-### Demo mode
-  it won't send messages or add friends
-  it won't fill in old_perc
-  mode - for preview,
-  getting to know the program.
+### Демо-режим
+  он не будет отправлять сообщения или добавлять друзей
+  он не заполняет old_perc
+  режим - для предварительного просмотра,
+  знакомство с программой.
 
-### Quiet mode
-  Does not show the browser, but it is launched and
-  it works more stably than without quiet mode.
-  At the end, I recommend turning off Chrome through Task Manager.
+### Тихий режим
+  Не показывает браузер, но он запускается и
+  работает более стабильно, чем без тихого режима.
+  В конце я рекомендую выключить Chrome через Диспетчер задач.
 
-### Accounts
-  will automatically switch
-  and continue sending messages, to leave
-  one account in use, delete
-  all accounts except the main one in the window
-  Password + Login
+### Аккаунты
+  автоматически переключится
+  и продолжит отправку сообщений, чтобы оставить
+  один аккаунт в использовании, удалите
+  все аккаунты, кроме главного в окне
+  Пароль + Логин
 
 ### target.txt
-  Links from the "Get group subscribers" button
-  and "Get friend links" button will be added here.
-  You can also add links manually, separated by a line break.
+  Ссылки с кнопки "Получить подписчиков группы"
+  и кнопка "Получить ссылки на друзей" будут добавлены здесь.
+  Вы также можете добавлять ссылки вручную, разделяя их переносом строки.
 
 ### old pers.txt
-  This file will contain users who
-  have already been processed, the program will never
-  contact them again. You can delete links to reuse them.
-  It also writes a report for each one.
+  В этом файле будут содержаться пользователи, которые
+  уже обработаны, программа никогда не будет
+  снова связываться с ними. Вы можете удалить ссылки для повторного использования.
+  Также пишет отчет для каждого.
 
-### image
-  Write a link to the image on the internet, to the final photo
+### изображение
+  Напишите ссылку на изображение в интернете, на финальное фото
   - https:// some image. com / cat.jpg
 
 ![image](https://user-images.githubusercontent.com/111605401/228058139-a8b532ee-a880-4397-8540-cddf4288b678.png)
